@@ -1,0 +1,15 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+def calculate_sum_perfect_binary_tree(height):
+    num_nodes = 2 ** (height + 1) - 1
+    return num_nodes
+tree_height = 5  
+total_nodes = calculate_sum_perfect_binary_tree(tree_height)
+print("Total sum of nodes in a perfect binary tree:", total_nodes)
+
+excepted output:
+
+Total sum of nodes in a perfect binary tree: 63
