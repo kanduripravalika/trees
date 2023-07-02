@@ -1,0 +1,22 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+def tree_height(root):
+    if root is None:
+        return 0
+    left_height = tree_height(root.left)
+    right_height = tree_height(root.right)
+    return max(left_height, right_height) + 1
+tree = Node(1)
+tree.left = Node(2)
+tree.right = Node(3)
+tree.left.left = Node(4)
+tree.left.right = Node(5)
+height = tree_height(tree)
+print("Height of the tree:", height)
+
+excepted output:
+
+Height of the tree: 3
