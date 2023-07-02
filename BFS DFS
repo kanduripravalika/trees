@@ -1,0 +1,60 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+def bfs(root):
+    if root is None:
+        return
+    queue = [root]
+    while queue:
+        node = queue.pop(0)
+        print(node.value, end=" ")
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+def dfs_preorder(root):
+    if root is None:
+        return
+    print(root.value, end=" ")
+    dfs_preorder(root.left)
+    dfs_preorder(root.right)
+def dfs_inorder(root):
+    if root is None:
+        return
+    dfs_inorder(root.left)
+    print(root.value, end=" ")
+    dfs_inorder(root.right)
+def dfs_postorder(root):
+    if root is None:
+        return
+    dfs_postorder(root.left)
+    dfs_postorder(root.right)
+    print(root.value, end=" ")
+tree = Node(1)
+tree.left = Node(2)
+tree.right = Node(3)
+tree.left.left = Node(4)
+tree.left.right = Node(5)
+tree.right.left = Node(6)
+tree.right.right = Node(7)
+print("BFS traversal:")
+bfs(tree)
+print("\nDFS Preorder traversal:")
+dfs_preorder(tree)
+print("\nDFS Inorder traversal:")
+dfs_inorder(tree)
+print("\nDFS Postorder traversal:")
+dfs_postorder(tree)
+
+excepted output:
+
+BFS traversal:
+1 2 3 4 5 6 7 
+DFS Preorder traversal:
+1 2 4 5 3 6 7 
+DFS Inorder traversal:
+4 2 5 1 6 3 7 
+DFS Postorder traversal:
+4 5 2 6 7 3 1 
